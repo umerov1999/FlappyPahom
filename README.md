@@ -3,5 +3,4 @@
 
 Для игры требуется Unreal Engine 4.25.3 или выше. Android Studio release and ndk
 
-<b>Скриншоты:</b>
 <img src="screenshot.jpg"/>
