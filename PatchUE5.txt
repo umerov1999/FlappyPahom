@@ -1,0 +1,47 @@
+C# compile OneSky UnrealSwarm
+
+public static void CopyFileIncremental(FileReference Source, FileReference Dest, bool bAllowDifferingTimestamps = false, List<string> IniKeyBlacklist = null, List<string> IniSectionBlacklist = null)
+public static bool SafeCopyFile(string SourceName, string TargetName, bool bQuiet = false, List<string> IniKeyBlacklist = null, List<string> IniSectionBlacklist = null)
+
+throw new UnrealBuildException("Specified file to AddBuildProduct {0} does not exist.", File); -> CommandUtils.LogVerbose
+bCreateDebugInfo
+bShouldOutputStatusDescription
+
+C++
+
+//UMG\Public\Components\Widget.h
+/** */
+UFUNCTION(BlueprintCallable, Category = "Widget|Transform")
+FWidgetTransform GetRenderTransform() const;
+
+//Engine\Source\Runtime\UMG\Private\Components\Widget.cpp
+FWidgetTransform UWidget::GetRenderTransform() const
+{
+	return RenderTransform;
+}
+
+//Engine/Source/Runtime/Engine/Classes/Sound/SoundNode.h
+static const int32 MAX_ALLOWED_CHILD_NODES = 64;
+
+Engine\Source\Runtime\Slate\Private\Widgets\Input\SSlider.cpp ::OnTouchMoved, ::OnTouchEnded - add !IsLocked()
+
+public override void GetValidVersionRange(out string MinVersion, out string MaxVersion)
+		{
+			MinVersion = "r21a";
+			MaxVersion = "r23a";
+		}
+BestVersionString = "28.0.3";
+
+Add to Engine\Config\BaseDeviceProfiles.ini
+	+DeviceProfileNameAndTypes=Android_Adreno5xx_Vulkan,Android
+	----
+	+MatchProfile=(Profile="Android_Adreno5xx_Vulkan",Match=((SourceType=SRC_GpuFamily,CompareType=CMP_Regex,MatchString="Adreno \\(TM\\) 5[4-9][0-9]"),(SourceType=SRC_AndroidVersion, CompareType=CMP_Regex,MatchString="([0-9]+).*"),(SourceType=SRC_PreviousRegexMatch,CompareType=CMP_GreaterEqual,MatchString="10"),(SourceType=SRC_VulkanAvailable,CompareType=CMP_Equal,MatchString="true")))
+	----
+	[Android_Adreno5xx_Vulkan DeviceProfile]
+	DeviceType=Android
+	BaseProfileName=Android_High
+	; enable Vulkan
+	+CVars=r.Android.DisableVulkanSupport=0
+
+keytool -genkey -v -keystore ExampleKey.keystore -alias umerov -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore ExampleKey.keystore -alias umerov -storetype PKCS12 -keyalg RSA -keysize 2048 -validity 10000
